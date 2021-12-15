@@ -33,7 +33,7 @@ namespace FeedbackPortal.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create(User user)
+        public IActionResult Create(User user)//add user
         {
             users.Add(user);
             return RedirectToAction("Get", users);
@@ -41,7 +41,7 @@ namespace FeedbackPortal.Controllers
 
         [HttpGet]
         [Route("Edit")]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id)//display user
         {
             User User = users.Where(use => use.Id.Equals(id)).Select(use => use).FirstOrDefault();
             return View();
@@ -49,7 +49,7 @@ namespace FeedbackPortal.Controllers
 
         [HttpPost]
         [Route("Edit")]
-        public IActionResult Edit(User user)
+        public IActionResult Edit(User user)//edit user
         {
             User User = users.Where(use => use.Id == user.Id).FirstOrDefault();
             if (User != null)
@@ -68,7 +68,7 @@ namespace FeedbackPortal.Controllers
             return View(User);
         }
 
-        [Route("Delete")]
+        [Route("Delete")]//delete not working
         public IActionResult Delete(int id)
         {
             User user = users.Find(use => use.Id == id);
