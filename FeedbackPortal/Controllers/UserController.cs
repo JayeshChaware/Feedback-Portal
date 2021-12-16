@@ -11,6 +11,7 @@ namespace FeedbackPortal.Controllers
     {
 
         public static List<User> users =new List<User>();
+        static int id = 0;
         public IActionResult Index()
         {
             return View();
@@ -20,7 +21,7 @@ namespace FeedbackPortal.Controllers
         [Route("Get")]
         public IActionResult Get()
         {
-            
+            ViewData["TotalUsers"] = users.Count();   
             return View(users);
         }
 
@@ -28,6 +29,7 @@ namespace FeedbackPortal.Controllers
         [Route("Create")]
         public IActionResult Create()
         {
+            ViewBag.ID = ++id;
             return View();
         }
 
