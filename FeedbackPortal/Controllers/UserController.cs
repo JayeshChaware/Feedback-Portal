@@ -75,10 +75,10 @@ namespace FeedbackPortal.Controllers
             if (user != null)
             {
                 users.Remove(user);
-                return RedirectToAction("Index");
+                return RedirectToAction("Get");
             }
             
-            return View("Index");
+            return View("Get");
 
         }
     }
