@@ -3,8 +3,8 @@ namespace FeedbackPortal.Enum
 {
     public enum Gender
     {
-        Male=0,
-        female=1,
-        other=2
-    }
+        Male=1,
+        female=2,
+        other=3
+    };
 }

@@ -14,6 +14,17 @@ namespace FeedbackPortal.Controllers
         static int id = 0;
         public IActionResult Index()
         {
+            User user1 = new User()
+            { 
+                Id=1,
+                FirstName="FirstName1",
+                LastName="LastName1",
+                Gender=Enum.Gender.Male,
+                IsActive=true
+
+            };
+            users.Add(user1);
+
             return View();
         }
 
@@ -29,7 +40,7 @@ namespace FeedbackPortal.Controllers
         [Route("Create")]
         public IActionResult Create()
         {
-            ViewBag.ID = ++id;
+            ViewBag.ID = ++id; //view bag
             return View();
         }
 
@@ -56,7 +67,9 @@ namespace FeedbackPortal.Controllers
             User User = users.Where(use => use.Id == user.Id).FirstOrDefault();
             if (User != null)
             {
-                User.Name = user.Name;
+                User.FirstName = user.FirstName;
+                User.LastName = user.LastName;
+                User.Gender = user.Gender;
                 User.IsActive = user.IsActive;
             };
             return RedirectToAction("Get", users);
